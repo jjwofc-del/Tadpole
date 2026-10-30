@@ -9,6 +9,8 @@
   const toast = document.getElementById('toast');
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('mainNav');
+  const authLink = document.querySelector('.login-link');
+  const CURRENT_MEMBER_KEY = 'tadpole.currentMember';
   let activeFilter = 'all';
   let cartCount = 0;
   let toastTimer;
@@ -20,6 +22,45 @@
     window.clearTimeout(toastTimer);
     toastTimer = window.setTimeout(() => toast.classList.remove('is-visible'), 2300);
   }
+
+  function getCurrentMember() {
+    try {
+      const member = JSON.parse(sessionStorage.getItem(CURRENT_MEMBER_KEY) || 'null');
+      return member && typeof member.userId === 'string' ? member : null;
+    } catch {
+      sessionStorage.removeItem(CURRENT_MEMBER_KEY);
+      return null;
+    }
+  }
+
+  function updateAuthLink() {
+    if (!authLink) return;
+    const currentMember = getCurrentMember();
+
+    if (currentMember) {
+      authLink.textContent = 'LOGOUT';
+      authLink.href = '#logout';
+      authLink.setAttribute('aria-label', `${currentMember.userId} 로그아웃`);
+      authLink.dataset.authAction = 'logout';
+    } else {
+      authLink.textContent = 'LOGIN';
+      authLink.href = 'login.html';
+      authLink.setAttribute('aria-label', '로그인');
+      authLink.dataset.authAction = 'login';
+    }
+  }
+
+  // 로그인 상태에 따라 헤더의 LOGIN / LOGOUT 표시를 갱신합니다.
+  updateAuthLink();
+
+  authLink?.addEventListener('click', (event) => {
+    if (getCurrentMember()) {
+      event.preventDefault();
+      sessionStorage.removeItem(CURRENT_MEMBER_KEY);
+      updateAuthLink();
+      showToast('로그아웃되었습니다.');
+    }
+  });
 
   function applyFilters() {
     const keyword = (searchInput?.value || '').trim().toLocaleLowerCase('ko-KR');
