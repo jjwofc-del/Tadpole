@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tadpole 로그인 페이지">
+  <title>LOGIN | Tadpole</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/login.js" defer></script>
+</head>
+<body class="login-page">
+  <div class="announcement-bar">TADPOLE MEMBERSHIP · YOUR EVERYDAY, YOUR STYLE <span aria-hidden="true">✳</span></div>
+  <header class="site-header login-header">
+    <a class="wordmark" href="index.html" aria-label="Tadpole 홈">tadpole<span>.</span></a>
+    <a class="text-link back-link" href="index.html">← CONTINUE SHOPPING</a>
+  </header>
+
+  <main class="login-main">
+    <section class="login-visual">
+      <img src="assets/images/login-image.svg" alt="로그인 페이지 사진 자리표시자">
+      <div class="login-visual-caption"><p class="eyebrow">WELCOME TO TADPOLE</p><h1>Your everyday<br><em>starts here.</em></h1></div>
+    </section>
+
+    <section class="login-panel" aria-labelledby="loginTitle">
+      <div class="login-panel-inner">
+        <p class="eyebrow">MEMBER ACCOUNT</p>
+        <h2 id="loginTitle">Welcome back<span class="accent-dot">.</span></h2>
+        <p class="login-subtitle">Tadpole에 오신 것을 환영합니다.</p>
+
+        <form id="loginForm" class="login-form" novalidate>
+          <label for="userId">아이디</label>
+          <input id="userId" name="userId" type="text" placeholder="아이디를 입력해 주세요" autocomplete="username" required>
+          <p class="field-error" id="userIdError"></p>
+
+          <label for="userPassword">비밀번호</label>
+          <div class="password-field">
+            <input id="userPassword" name="password" type="password" placeholder="비밀번호를 입력해 주세요" autocomplete="current-password" required>
+            <button class="password-toggle" id="passwordToggle" type="button" aria-label="비밀번호 표시">SHOW</button>
+          </div>
+          <p class="field-error" id="passwordError"></p>
+
+          <div class="login-options">
+            <label class="remember-option"><input type="checkbox" id="rememberMe"> <span>아이디 기억하기</span></label>
+            <a href="#find-account" id="findAccount">아이디 / 비밀번호 찾기</a>
+          </div>
+          <button class="login-submit" type="submit">LOGIN <span aria-hidden="true">↗</span></button>
+          <p class="login-feedback" id="loginFeedback" aria-live="polite"></p>
+        </form>
+
+        <div class="login-divider"><span>OR</span></div>
+        <button class="guest-button" id="guestButton" type="button">비회원으로 둘러보기</button>
+        <p class="signup-copy">아직 회원이 아니신가요? <a href="#signup" id="signupLink">회원가입</a></p>
+        <p class="demo-notice">※ 포트폴리오용 화면입니다. 현재 로그인은 실제 계정 인증을 하지 않습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer login-footer">
+    <a class="wordmark footer-wordmark" href="index.html">tadpole<span>.</span></a>
+    <small>© 2026 TADPOLE. DEMO SHOP FOR QA PORTFOLIO.</small>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

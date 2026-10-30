@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tadpole - 매일 입고 싶은 감각적인 데일리웨어를 만나보세요.">
+  <title>Tadpole | Everyday, in your style</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <div class="announcement-bar">TADPOLE MEMBERSHIP · 첫 회원가입 시 웰컴 쿠폰 증정 <span aria-hidden="true">✳</span></div>
+
+  <header class="site-header">
+    <button class="icon-button menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <a class="wordmark" href="index.html" aria-label="Tadpole 홈">tadpole<span>.</span></a>
+
+    <nav class="main-nav" id="mainNav" aria-label="주요 메뉴">
+      <a href="#new-arrivals">NEW</a>
+      <a href="#categories">SHOP</a>
+      <a href="#best-items">BEST</a>
+      <a href="#about">ABOUT</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="text-link login-link" href="login.html">LOGIN</a>
+      <button class="icon-button bag-button" type="button" aria-label="장바구니, 담긴 상품 0개">BAG <span id="bagCount">0</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">THE EVERYDAY EDIT · 2026</p>
+        <h1 id="heroTitle">Everyday,<br><em>in your style.</em></h1>
+        <p class="hero-description">가볍게 입고, 오래 좋아할 옷.<br>나만의 속도로 완성하는 데일리 룩.</p>
+        <a class="pill-button pill-button-dark" href="#new-arrivals">NEW ARRIVALS <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="hero-art" role="img" aria-label="메인 비주얼 사진 자리">
+        <div class="hero-image-frame">
+          <img src="assets/images/hero-image.svg" alt="메인 룩북 사진 자리표시자">
+          <span class="image-note">HERO IMAGE<br>여기에 메인 사진을 넣어주세요</span>
+        </div>
+        <div class="hero-sticker">GOOD<br>MOOD<br>ONLY ✳</div>
+        <p class="hero-caption">TADPOLE COLLECTION — 01</p>
+      </div>
+      <div class="hero-side-label">CLOTHES FOR YOUR EVERYDAY</div>
+    </section>
+
+    <section class="category-section section-wrap" id="categories">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">FIND YOUR FAVORITE</p>
+          <h2>Shop by category<span class="accent-dot">.</span></h2>
+        </div>
+        <p class="section-aside">오늘의 기분에 맞는<br>아이템을 찾아보세요.</p>
+      </div>
+      <div class="category-grid">
+        <button class="category-card" type="button" data-filter="outer">
+          <span class="category-image"><img src="assets/images/category-outer.svg" alt="아우터 카테고리 사진 자리"></span>
+          <span class="category-meta"><strong>OUTER</strong><span>가볍게 걸치는 한 겹 ↗</span></span>
+        </button>
+        <button class="category-card" type="button" data-filter="tops">
+          <span class="category-image"><img src="assets/images/category-tops.svg" alt="상의 카테고리 사진 자리"></span>
+          <span class="category-meta"><strong>TOPS</strong><span>매일 손이 가는 상의 ↗</span></span>
+        </button>
+        <button class="category-card" type="button" data-filter="bottoms">
+          <span class="category-image"><img src="assets/images/category-bottoms.svg" alt="하의 카테고리 사진 자리"></span>
+          <span class="category-meta"><strong>BOTTOMS</strong><span>편안한 실루엣 ↗</span></span>
+        </button>
+        <button class="category-card" type="button" data-filter="acc">
+          <span class="category-image"><img src="assets/images/category-acc.svg" alt="액세서리 카테고리 사진 자리"></span>
+          <span class="category-meta"><strong>ACCESSORIES</strong><span>작은 포인트 하나 ↗</span></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="product-section section-wrap" id="new-arrivals">
+      <div class="section-heading product-heading">
+        <div>
+          <p class="eyebrow">JUST DROPPED</p>
+          <h2>New arrivals<span class="accent-dot">.</span></h2>
+        </div>
+        <a class="underlined-link" href="#best-items">VIEW ALL <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="shop-toolbar">
+        <div class="filter-list" role="group" aria-label="상품 카테고리 필터">
+          <button class="filter-button is-active" type="button" data-filter="all">ALL</button>
+          <button class="filter-button" type="button" data-filter="outer">OUTER</button>
+          <button class="filter-button" type="button" data-filter="tops">TOPS</button>
+          <button class="filter-button" type="button" data-filter="bottoms">BOTTOMS</button>
+          <button class="filter-button" type="button" data-filter="acc">ACC</button>
+        </div>
+        <label class="search-box">
+          <span class="sr-only">상품 검색</span>
+          <input id="productSearch" type="search" placeholder="상품 검색" autocomplete="off">
+          <span aria-hidden="true">⌕</span>
+        </label>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <article class="product-card" data-category="outer" data-name="오버핏 코튼 블루종">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-01.svg" alt="오버핏 코튼 블루종 상품 사진 자리">
+            <span class="product-label">NEW</span>
+            <button class="wish-button" type="button" aria-label="오버핏 코튼 블루종 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">OUTER</p><h3>오버핏 코튼 블루종</h3><div class="product-bottom"><strong>₩ 89,000</strong><button class="add-button" type="button" aria-label="오버핏 코튼 블루종 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="tops" data-name="소프트 리브드 티셔츠">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-02.svg" alt="소프트 리브드 티셔츠 상품 사진 자리">
+            <span class="product-label product-label-muted">BEST</span>
+            <button class="wish-button" type="button" aria-label="소프트 리브드 티셔츠 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">TOPS</p><h3>소프트 리브드 티셔츠</h3><div class="product-bottom"><strong>₩ 32,000</strong><button class="add-button" type="button" aria-label="소프트 리브드 티셔츠 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="bottoms" data-name="와이드 데님 팬츠">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-03.svg" alt="와이드 데님 팬츠 상품 사진 자리">
+            <button class="wish-button" type="button" aria-label="와이드 데님 팬츠 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">BOTTOMS</p><h3>와이드 데님 팬츠</h3><div class="product-bottom"><strong>₩ 74,000</strong><button class="add-button" type="button" aria-label="와이드 데님 팬츠 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="acc" data-name="데일리 볼캡">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-04.svg" alt="데일리 볼캡 상품 사진 자리">
+            <button class="wish-button" type="button" aria-label="데일리 볼캡 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">ACCESSORIES</p><h3>데일리 볼캡</h3><div class="product-bottom"><strong>₩ 29,000</strong><button class="add-button" type="button" aria-label="데일리 볼캡 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="tops" data-name="레터링 스웨트셔츠">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-05.svg" alt="레터링 스웨트셔츠 상품 사진 자리">
+            <button class="wish-button" type="button" aria-label="레터링 스웨트셔츠 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">TOPS</p><h3>레터링 스웨트셔츠</h3><div class="product-bottom"><strong>₩ 58,000</strong><button class="add-button" type="button" aria-label="레터링 스웨트셔츠 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="bottoms" data-name="이지 밴딩 쇼츠">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-06.svg" alt="이지 밴딩 쇼츠 상품 사진 자리">
+            <button class="wish-button" type="button" aria-label="이지 밴딩 쇼츠 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">BOTTOMS</p><h3>이지 밴딩 쇼츠</h3><div class="product-bottom"><strong>₩ 39,000</strong><button class="add-button" type="button" aria-label="이지 밴딩 쇼츠 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="outer" data-name="라이트 윈드 브레이커">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-07.svg" alt="라이트 윈드 브레이커 상품 사진 자리">
+            <button class="wish-button" type="button" aria-label="라이트 윈드 브레이커 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">OUTER</p><h3>라이트 윈드 브레이커</h3><div class="product-bottom"><strong>₩ 96,000</strong><button class="add-button" type="button" aria-label="라이트 윈드 브레이커 장바구니에 담기">ADD +</button></div></div>
+        </article>
+        <article class="product-card" data-category="acc" data-name="미니 크로스백">
+          <div class="product-image-wrap">
+            <img src="assets/images/product-08.svg" alt="미니 크로스백 상품 사진 자리">
+            <button class="wish-button" type="button" aria-label="미니 크로스백 관심 상품에 추가" aria-pressed="false">♡</button>
+          </div>
+          <div class="product-info"><p class="product-category">ACCESSORIES</p><h3>미니 크로스백</h3><div class="product-bottom"><strong>₩ 45,000</strong><button class="add-button" type="button" aria-label="미니 크로스백 장바구니에 담기">ADD +</button></div></div>
+        </article>
+      </div>
+      <p class="empty-message" id="emptyMessage" hidden>검색 결과가 없습니다. 다른 상품명을 입력해 주세요.</p>
+    </section>
+
+    <section class="editorial-banner" id="about">
+      <div class="editorial-image"><img src="assets/images/editorial-image.svg" alt="Tadpole 브랜드 사진 자리표시자"><span class="image-note">EDITORIAL IMAGE<br>사진을 교체해 주세요</span></div>
+      <div class="editorial-copy"><p class="eyebrow">A LITTLE MORE YOU</p><h2>Less rules,<br><em>more style.</em></h2><p>유행보다 나다운 선택.<br>매일의 옷장에 자연스럽게 스며드는 아이템을 소개합니다.</p><a class="underlined-link" href="#categories">EXPLORE TADPOLE <span aria-hidden="true">↗</span></a></div>
+    </section>
+
+    <section class="newsletter section-wrap">
+      <p class="eyebrow">STAY IN THE LOOP</p>
+      <h2>Get the good things<span class="accent-dot">.</span></h2>
+      <p>새로운 컬렉션과 소식을 가장 먼저 만나보세요.</p>
+      <form id="newsletterForm" class="newsletter-form">
+        <label class="sr-only" for="newsletterEmail">이메일 주소</label>
+        <input id="newsletterEmail" type="email" placeholder="이메일 주소를 입력해 주세요" required>
+        <button type="submit">SUBSCRIBE ↗</button>
+      </form>
+      <p class="form-feedback" id="newsletterFeedback" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-wordmark" href="index.html">tadpole<span>.</span></a>
+    <p>Everyday, in your style.</p>
+    <div class="footer-links"><a href="#about">ABOUT US</a><a href="login.html">MY PAGE</a><a href="mailto:hello@tadpole.example">CONTACT</a></div>
+    <small>© 2026 TADPOLE. DEMO SHOP FOR QA PORTFOLIO.</small>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
