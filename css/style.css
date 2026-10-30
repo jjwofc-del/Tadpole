@@ -144,6 +144,11 @@ img { display: block; max-width: 100%; }
 .password-field { position: relative; }
 .password-field input { padding-right: 57px; }
 .password-toggle { position: absolute; top: 0; right: 0; height: 45px; padding: 0 12px; border: 0; background: transparent; color: var(--muted); font-family: var(--font-display); font-size: 8px; font-weight: 700; cursor: pointer; }
+
+.field-hint { margin: -8px 0 10px; color: #8b8f84; font-size: 9px; line-height: 1.5; }
+.password-safety-notice { margin: 2px 0 12px; padding: 10px 12px; border-left: 2px solid #b78358; background: #f3eee7; color: #805b3e; font-size: 10px; line-height: 1.6; }
+.login-feedback.is-error { color: #b34d46; }
+
 .field-error { min-height: 13px; margin: -9px 0 9px; color: #b34d46; font-size: 9px; }
 .login-options { display: flex; justify-content: space-between; align-items: center; margin: 4px 0 21px; color: var(--muted); font-size: 9px; }
 .remember-option { display: flex; align-items: center; gap: 6px; cursor: pointer; }
