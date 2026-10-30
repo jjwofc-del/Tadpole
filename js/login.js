@@ -57,8 +57,31 @@
         return;
       }
       sessionStorage.setItem('tadpole.currentMember', JSON.stringify({ memberNumber: member.memberNumber, userId: member.userId }));
-      feedback.textContent = '로그인되었습니다! 메인 페이지로 이동합니다.';
-      window.setTimeout(() => { window.location.href = 'index.html'; }, 900);
+
+      // 비회원 상태에서 담아둔 상품이 있으면 로그인한 회원의 장바구니에 합칩니다.
+      const guestCartKey = 'tadpole.cart.v1.guest';
+      const memberCartKey = `tadpole.cart.v1.${member.memberNumber}`;
+      try {
+        const guestCart = JSON.parse(localStorage.getItem(guestCartKey) || '[]');
+        const memberCart = JSON.parse(localStorage.getItem(memberCartKey) || '[]');
+        if (Array.isArray(guestCart) && guestCart.length) {
+          const mergedCart = Array.isArray(memberCart) ? memberCart : [];
+          guestCart.forEach((guestItem) => {
+            const existing = mergedCart.find((item) => item.productId === guestItem.productId);
+            if (existing) existing.quantity = Math.min(99, (Number(existing.quantity) || 0) + (Number(guestItem.quantity) || 0));
+            else mergedCart.push(guestItem);
+          });
+          localStorage.setItem(memberCartKey, JSON.stringify(mergedCart));
+          localStorage.removeItem(guestCartKey);
+        }
+      } catch {
+        // 장바구니 데이터가 비정상이어도 로그인 자체는 계속 진행합니다.
+      }
+
+      feedback.textContent = '로그인되었습니다! 페이지로 이동합니다.';
+      const nextPage = new URLSearchParams(window.location.search).get('next');
+      const destination = nextPage === 'mypage.html' ? 'mypage.html' : 'index.html';
+      window.setTimeout(() => { window.location.href = destination; }, 900);
     } catch (error) {
       feedback.textContent = error.message || '로그인 중 오류가 발생했습니다.';
       feedback.classList.add('is-error');

@@ -23,8 +23,9 @@
     </nav>
 
     <div class="header-actions">
+      <a class="text-link mypage-link" id="mypageLink" href="mypage.html" hidden>MY PAGE</a>
       <a class="text-link login-link" href="login.html">LOGIN</a>
-      <button class="icon-button bag-button" type="button" aria-label="장바구니, 담긴 상품 0개">BAG <span id="bagCount">0</span></button>
+      <a class="bag-button" id="bagButton" href="mypage.html#cart" aria-label="장바구니, 담긴 상품 0개">BAG <span id="bagCount">0</span></a>
     </div>
   </header>
 
@@ -99,7 +100,7 @@
       </div>
 
       <div class="product-grid" id="productGrid">
-        <article class="product-card" data-category="outer" data-name="오버핏 코튼 블루종">
+        <article class="product-card" data-product-id="product-01" data-price="89000" data-category="outer" data-name="오버핏 코튼 블루종">
           <div class="product-image-wrap">
             <img src="assets/images/product-01.svg" alt="오버핏 코튼 블루종 상품 사진 자리">
             <span class="product-label">NEW</span>
@@ -107,7 +108,7 @@
           </div>
           <div class="product-info"><p class="product-category">OUTER</p><h3>오버핏 코튼 블루종</h3><div class="product-bottom"><strong>₩ 89,000</strong><button class="add-button" type="button" aria-label="오버핏 코튼 블루종 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="tops" data-name="소프트 리브드 티셔츠">
+        <article class="product-card" data-product-id="product-02" data-price="32000" data-category="tops" data-name="소프트 리브드 티셔츠">
           <div class="product-image-wrap">
             <img src="assets/images/product-02.svg" alt="소프트 리브드 티셔츠 상품 사진 자리">
             <span class="product-label product-label-muted">BEST</span>
@@ -115,42 +116,42 @@
           </div>
           <div class="product-info"><p class="product-category">TOPS</p><h3>소프트 리브드 티셔츠</h3><div class="product-bottom"><strong>₩ 32,000</strong><button class="add-button" type="button" aria-label="소프트 리브드 티셔츠 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="bottoms" data-name="와이드 데님 팬츠">
+        <article class="product-card" data-product-id="product-03" data-price="74000" data-category="bottoms" data-name="와이드 데님 팬츠">
           <div class="product-image-wrap">
             <img src="assets/images/product-03.svg" alt="와이드 데님 팬츠 상품 사진 자리">
             <button class="wish-button" type="button" aria-label="와이드 데님 팬츠 관심 상품에 추가" aria-pressed="false">♡</button>
           </div>
           <div class="product-info"><p class="product-category">BOTTOMS</p><h3>와이드 데님 팬츠</h3><div class="product-bottom"><strong>₩ 74,000</strong><button class="add-button" type="button" aria-label="와이드 데님 팬츠 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="acc" data-name="데일리 볼캡">
+        <article class="product-card" data-product-id="product-04" data-price="29000" data-category="acc" data-name="데일리 볼캡">
           <div class="product-image-wrap">
             <img src="assets/images/product-04.svg" alt="데일리 볼캡 상품 사진 자리">
             <button class="wish-button" type="button" aria-label="데일리 볼캡 관심 상품에 추가" aria-pressed="false">♡</button>
           </div>
           <div class="product-info"><p class="product-category">ACCESSORIES</p><h3>데일리 볼캡</h3><div class="product-bottom"><strong>₩ 29,000</strong><button class="add-button" type="button" aria-label="데일리 볼캡 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="tops" data-name="레터링 스웨트셔츠">
+        <article class="product-card" data-product-id="product-05" data-price="58000" data-category="tops" data-name="레터링 스웨트셔츠">
           <div class="product-image-wrap">
             <img src="assets/images/product-05.svg" alt="레터링 스웨트셔츠 상품 사진 자리">
             <button class="wish-button" type="button" aria-label="레터링 스웨트셔츠 관심 상품에 추가" aria-pressed="false">♡</button>
           </div>
           <div class="product-info"><p class="product-category">TOPS</p><h3>레터링 스웨트셔츠</h3><div class="product-bottom"><strong>₩ 58,000</strong><button class="add-button" type="button" aria-label="레터링 스웨트셔츠 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="bottoms" data-name="이지 밴딩 쇼츠">
+        <article class="product-card" data-product-id="product-06" data-price="39000" data-category="bottoms" data-name="이지 밴딩 쇼츠">
           <div class="product-image-wrap">
             <img src="assets/images/product-06.svg" alt="이지 밴딩 쇼츠 상품 사진 자리">
             <button class="wish-button" type="button" aria-label="이지 밴딩 쇼츠 관심 상품에 추가" aria-pressed="false">♡</button>
           </div>
           <div class="product-info"><p class="product-category">BOTTOMS</p><h3>이지 밴딩 쇼츠</h3><div class="product-bottom"><strong>₩ 39,000</strong><button class="add-button" type="button" aria-label="이지 밴딩 쇼츠 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="outer" data-name="라이트 윈드 브레이커">
+        <article class="product-card" data-product-id="product-07" data-price="96000" data-category="outer" data-name="라이트 윈드 브레이커">
           <div class="product-image-wrap">
             <img src="assets/images/product-07.svg" alt="라이트 윈드 브레이커 상품 사진 자리">
             <button class="wish-button" type="button" aria-label="라이트 윈드 브레이커 관심 상품에 추가" aria-pressed="false">♡</button>
           </div>
           <div class="product-info"><p class="product-category">OUTER</p><h3>라이트 윈드 브레이커</h3><div class="product-bottom"><strong>₩ 96,000</strong><button class="add-button" type="button" aria-label="라이트 윈드 브레이커 장바구니에 담기">ADD +</button></div></div>
         </article>
-        <article class="product-card" data-category="acc" data-name="미니 크로스백">
+        <article class="product-card" data-product-id="product-08" data-price="45000" data-category="acc" data-name="미니 크로스백">
           <div class="product-image-wrap">
             <img src="assets/images/product-08.svg" alt="미니 크로스백 상품 사진 자리">
             <button class="wish-button" type="button" aria-label="미니 크로스백 관심 상품에 추가" aria-pressed="false">♡</button>
@@ -182,7 +183,7 @@
   <footer class="site-footer">
     <a class="wordmark footer-wordmark" href="index.html">tadpole<span>.</span></a>
     <p>Everyday, in your style.</p>
-    <div class="footer-links"><a href="#about">ABOUT US</a><a href="login.html">MY PAGE</a><a href="mailto:hello@tadpole.example">CONTACT</a></div>
+    <div class="footer-links"><a href="#about">ABOUT US</a><a href="mypage.html">MY PAGE</a><a href="mailto:hello@tadpole.example">CONTACT</a></div>
     <small>© 2026 TADPOLE. DEMO SHOP FOR QA PORTFOLIO.</small>
   </footer>
 

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tadpole 마이페이지 - 회원 정보와 장바구니를 확인하세요.">
+  <title>MY PAGE | Tadpole</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/mypage.js" defer></script>
+</head>
+<body class="mypage-page">
+  <div class="announcement-bar">TADPOLE MEMBERSHIP · YOUR EVERYDAY, YOUR STYLE <span aria-hidden="true">✳</span></div>
+  <header class="site-header mypage-header">
+    <a class="wordmark" href="index.html" aria-label="Tadpole 홈">tadpole<span>.</span></a>
+    <div class="mypage-header-actions">
+      <a class="text-link back-link" href="index.html">CONTINUE SHOPPING</a>
+      <button class="text-link logout-button" id="mypageLogout" type="button">LOGOUT</button>
+    </div>
+  </header>
+
+  <main class="mypage-main section-wrap">
+    <section class="mypage-intro">
+      <p class="eyebrow">YOUR TADPOLE ACCOUNT</p>
+      <h1>My page<span class="accent-dot">.</span></h1>
+      <p>반가워요, <strong id="welcomeUser">회원</strong>님. 나의 쇼핑 정보를 확인해 보세요.</p>
+    </section>
+
+    <section class="member-summary" aria-labelledby="memberSummaryTitle">
+      <div>
+        <p class="eyebrow">MEMBERSHIP</p>
+        <h2 id="memberSummaryTitle">회원 정보</h2>
+        <p class="member-summary-copy">Tadpole 데모 계정 정보입니다.</p>
+      </div>
+      <dl class="member-details">
+        <div><dt>아이디</dt><dd id="memberUserId">-</dd></div>
+        <div><dt>회원번호</dt><dd id="memberNumber">-</dd></div>
+        <div><dt>가입일</dt><dd id="memberJoinedAt">-</dd></div>
+      </dl>
+    </section>
+
+    <section class="mypage-section cart-section" id="cart" aria-labelledby="cartTitle">
+      <div class="mypage-section-heading">
+        <div>
+          <p class="eyebrow">YOUR SELECTED ITEMS</p>
+          <h2 id="cartTitle">Shopping bag<span class="accent-dot">.</span></h2>
+        </div>
+        <button class="subtle-button" id="clearCartButton" type="button">전체 비우기</button>
+      </div>
+      <div class="cart-list" id="cartList" aria-live="polite"></div>
+      <div class="cart-empty" id="cartEmpty" hidden>
+        <p>아직 장바구니에 담긴 상품이 없어요.</p>
+        <a class="pill-button pill-button-dark" href="index.html#new-arrivals">SHOP NOW <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="cart-total-row" id="cartTotalRow">
+        <span>상품 합계 <small>(배송비 별도 · 모의 금액)</small></span>
+        <strong id="cartTotal">₩ 0</strong>
+      </div>
+      <p class="mypage-demo-note">※ 장바구니와 금액은 QA 실습을 위한 브라우저 저장 데모이며 실제 주문·결제는 진행되지 않습니다.</p>
+    </section>
+
+    <section class="mypage-section password-section" aria-labelledby="passwordTitle">
+      <div class="mypage-section-heading">
+        <div>
+          <p class="eyebrow">ACCOUNT SECURITY</p>
+          <h2 id="passwordTitle">Change password<span class="accent-dot">.</span></h2>
+        </div>
+      </div>
+      <div class="password-change-layout">
+        <div class="password-change-copy">
+          <h3>비밀번호 변경</h3>
+          <p>현재 비밀번호를 확인한 뒤 새로운 비밀번호로 변경할 수 있어요.</p>
+          <p class="password-safety-notice">연습용 인증 기능입니다. 실제 서비스의 안전한 인증 시스템이 아니므로 실제 사용하는 비밀번호를 입력하지 마세요.</p>
+        </div>
+        <form class="password-change-form" id="passwordChangeForm" novalidate>
+          <label for="currentPassword">현재 비밀번호</label>
+          <input id="currentPassword" name="currentPassword" type="password" autocomplete="current-password" placeholder="현재 비밀번호" required>
+          <label for="newPassword">새 비밀번호</label>
+          <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" placeholder="새 비밀번호 8자 이상" minlength="8" required>
+          <label for="confirmPassword">새 비밀번호 확인</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="새 비밀번호 다시 입력" minlength="8" required>
+          <p class="password-change-feedback" id="passwordChangeFeedback" aria-live="polite"></p>
+          <button class="login-submit" type="submit">UPDATE PASSWORD <span aria-hidden="true">↗</span></button>
+        </form>
+      </div>
+    </section>
+
+    <p class="mypage-security-note">안내: Tadpole는 GitHub Pages에서 실행되는 QA 포트폴리오용 프론트엔드 데모입니다. 회원정보와 장바구니는 현재 브라우저에 저장되며, 실제 계정 보안·서버 동기화·결제 기능은 제공하지 않습니다.</p>
+  </main>
+
+  <footer class="site-footer">
+    <a class="wordmark footer-wordmark" href="index.html">tadpole<span>.</span></a>
+    <p>Everyday, in your style.</p>
+    <div class="footer-links"><a href="index.html#about">ABOUT US</a><a href="index.html#categories">SHOP</a><a href="mailto:hello@tadpole.example">CONTACT</a></div>
+    <small>© 2026 TADPOLE. DEMO SHOP FOR QA PORTFOLIO.</small>
+  </footer>
+  <div class="toast" id="mypageToast" role="status" aria-live="polite"></div>
+</body>
+</html>

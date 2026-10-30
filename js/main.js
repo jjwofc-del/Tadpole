@@ -5,14 +5,16 @@
   const searchInput = document.getElementById('productSearch');
   const emptyMessage = document.getElementById('emptyMessage');
   const bagCount = document.getElementById('bagCount');
-  const bagButton = document.querySelector('.bag-button');
+  const bagButton = document.getElementById('bagButton');
   const toast = document.getElementById('toast');
   const menuToggle = document.querySelector('.menu-toggle');
   const mainNav = document.getElementById('mainNav');
   const authLink = document.querySelector('.login-link');
+  const mypageLink = document.getElementById('mypageLink');
   const CURRENT_MEMBER_KEY = 'tadpole.currentMember';
+  const CART_KEY_PREFIX = 'tadpole.cart.v1.';
+  const GUEST_CART_KEY = `${CART_KEY_PREFIX}guest`;
   let activeFilter = 'all';
-  let cartCount = 0;
   let toastTimer;
 
   function showToast(message) {
@@ -26,21 +28,42 @@
   function getCurrentMember() {
     try {
       const member = JSON.parse(sessionStorage.getItem(CURRENT_MEMBER_KEY) || 'null');
-      return member && typeof member.userId === 'string' ? member : null;
+      return member && typeof member.userId === 'string' && typeof member.memberNumber === 'string' ? member : null;
     } catch {
       sessionStorage.removeItem(CURRENT_MEMBER_KEY);
       return null;
     }
   }
 
-  function updateAuthLink() {
-    if (!authLink) return;
-    const currentMember = getCurrentMember();
+  function getCartKey() {
+    const member = getCurrentMember();
+    return member ? `${CART_KEY_PREFIX}${member.memberNumber}` : GUEST_CART_KEY;
+  }
 
-    if (currentMember) {
+  function readCart() {
+    try {
+      const cart = JSON.parse(localStorage.getItem(getCartKey()) || '[]');
+      return Array.isArray(cart) ? cart : [];
+    } catch {
+      return [];
+    }
+  }
+
+  function updateBagCount() {
+    const count = readCart().reduce((sum, item) => sum + Math.max(0, Number(item.quantity) || 0), 0);
+    if (bagCount) bagCount.textContent = String(count);
+    bagButton?.setAttribute('aria-label', `장바구니, 담긴 상품 ${count}개`);
+  }
+
+  function updateAuthLinks() {
+    const member = getCurrentMember();
+    if (mypageLink) mypageLink.hidden = !member;
+    if (!authLink) return;
+
+    if (member) {
       authLink.textContent = 'LOGOUT';
       authLink.href = '#logout';
-      authLink.setAttribute('aria-label', `${currentMember.userId} 로그아웃`);
+      authLink.setAttribute('aria-label', `${member.userId} 로그아웃`);
       authLink.dataset.authAction = 'logout';
     } else {
       authLink.textContent = 'LOGIN';
@@ -50,14 +73,15 @@
     }
   }
 
-  // 로그인 상태에 따라 헤더의 LOGIN / LOGOUT 표시를 갱신합니다.
-  updateAuthLink();
+  updateAuthLinks();
+  updateBagCount();
 
   authLink?.addEventListener('click', (event) => {
     if (getCurrentMember()) {
       event.preventDefault();
       sessionStorage.removeItem(CURRENT_MEMBER_KEY);
-      updateAuthLink();
+      updateAuthLinks();
+      updateBagCount();
       showToast('로그아웃되었습니다.');
     }
   });
@@ -88,23 +112,27 @@
     document.getElementById('new-arrivals')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => setFilter(button.dataset.filter || 'all'));
-  });
-
-  categoryCards.forEach((button) => {
-    button.addEventListener('click', () => setFilter(button.dataset.filter || 'all'));
-  });
-
+  filterButtons.forEach((button) => button.addEventListener('click', () => setFilter(button.dataset.filter || 'all')));
+  categoryCards.forEach((button) => button.addEventListener('click', () => setFilter(button.dataset.filter || 'all')));
   searchInput?.addEventListener('input', applyFilters);
 
   document.querySelectorAll('.add-button').forEach((button) => {
     button.addEventListener('click', () => {
-      cartCount += 1;
-      if (bagCount) bagCount.textContent = String(cartCount);
-      bagButton?.setAttribute('aria-label', `장바구니, 담긴 상품 ${cartCount}개`);
-      const productName = button.closest('.product-card')?.dataset.name || '상품';
-      showToast(`${productName} 상품을 장바구니에 담았어요.`);
+      const card = button.closest('.product-card');
+      if (!card) return;
+      const product = {
+        productId: card.dataset.productId || card.dataset.name,
+        name: card.dataset.name || '상품',
+        price: Number(card.dataset.price) || 0,
+        image: card.querySelector('.product-image-wrap img')?.getAttribute('src') || '',
+      };
+      const cart = readCart();
+      const existing = cart.find((item) => item.productId === product.productId);
+      if (existing) existing.quantity = (Number(existing.quantity) || 0) + 1;
+      else cart.push({ ...product, quantity: 1 });
+      localStorage.setItem(getCartKey(), JSON.stringify(cart));
+      updateBagCount();
+      showToast(`${product.name} 상품을 장바구니에 담았어요.`);
     });
   });
 
@@ -117,8 +145,12 @@
     });
   });
 
-  bagButton?.addEventListener('click', () => {
-    showToast(cartCount ? `장바구니에 상품 ${cartCount}개가 담겨 있어요. (데모 기능)` : '장바구니가 비어 있어요.');
+  bagButton?.addEventListener('click', (event) => {
+    if (!getCurrentMember()) {
+      event.preventDefault();
+      showToast('장바구니를 확인하려면 먼저 로그인해 주세요.');
+      window.setTimeout(() => { window.location.href = 'login.html'; }, 800);
+    }
   });
 
   menuToggle?.addEventListener('click', () => {
