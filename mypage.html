@@ -75,9 +75,9 @@
           <label for="currentPassword">현재 비밀번호</label>
           <input id="currentPassword" name="currentPassword" type="password" autocomplete="current-password" placeholder="현재 비밀번호" required>
           <label for="newPassword">새 비밀번호</label>
-          <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" placeholder="새 비밀번호 8자 이상" minlength="8" required>
+          <input id="newPassword" name="newPassword" type="password" autocomplete="new-password" placeholder="새 비밀번호 1~4자" minlength="1" maxlength="4" required>
           <label for="confirmPassword">새 비밀번호 확인</label>
-          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="새 비밀번호 다시 입력" minlength="8" required>
+          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="새 비밀번호 다시 입력" minlength="1" maxlength="4" required>
           <p class="password-change-feedback" id="passwordChangeFeedback" aria-live="polite"></p>
           <button class="login-submit" type="submit">UPDATE PASSWORD <span aria-hidden="true">↗</span></button>
         </form>

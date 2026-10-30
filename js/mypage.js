@@ -177,8 +177,8 @@
       passwordFeedback.classList.add('is-error');
       return;
     }
-    if (newPassword.length < 8) {
-      passwordFeedback.textContent = '새 비밀번호는 8자 이상 입력해 주세요.';
+    if (newPassword.length < 1 || newPassword.length > 4) {
+      passwordFeedback.textContent = '새 비밀번호는 1~4자로 입력해 주세요.';
       passwordFeedback.classList.add('is-error');
       return;
     }

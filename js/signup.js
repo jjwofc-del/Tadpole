@@ -48,8 +48,8 @@
       idError.textContent = '아이디는 영문 소문자, 숫자, 밑줄(_)로 4~16자 입력해 주세요.';
       valid = false;
     }
-    if (password.length < 8) {
-      passwordError.textContent = '비밀번호는 8자 이상 입력해 주세요.';
+    if (password.length < 1 || password.length > 4) {
+      passwordError.textContent = '비밀번호는 1~4자로 입력해 주세요.';
       valid = false;
     }
     if (!valid) return;

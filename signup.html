@@ -36,10 +36,10 @@
           <p class="password-safety-notice">이것은 연습용으로 실제 서비스의 안전한 인증 시스템은 아니므로 실제 사용하는 비밀번호는 입력하지 마세요.</p>
           <label for="signupPassword">비밀번호</label>
           <div class="password-field">
-            <input id="signupPassword" name="password" type="password" placeholder="비밀번호 8자 이상" autocomplete="new-password" minlength="8" required>
+            <input id="signupPassword" name="password" type="password" placeholder="비밀번호 1~4자" autocomplete="new-password" minlength="1" maxlength="4" required>
             <button class="password-toggle" id="signupPasswordToggle" type="button" aria-label="비밀번호 표시">SHOW</button>
           </div>
-          <p class="field-hint">8자 이상 입력해 주세요.</p>
+          <p class="field-hint">테스트용 비밀번호를 1~4자로 입력해 주세요.</p>
           <p class="field-error" id="signupPasswordError"></p>
 
           <button class="login-submit" type="submit">CREATE ACCOUNT <span aria-hidden="true">↗</span></button>
